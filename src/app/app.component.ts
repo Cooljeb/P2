@@ -1,12 +1,20 @@
+
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RestaurantComponent } from "./components/restaurant/restaurant.component";
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [RestaurantComponent],
+  //imports: [TdlComponent]
 })
 export class AppComponent {
-  title = 'P2';
+  //friends =['coco','lou','sarah' ];
+  menus =['Menu A - Pouascaille',
+     'Menu B - Viande Blanche',
+     'Menu C - Fruits de Mer',
+  ]
 }

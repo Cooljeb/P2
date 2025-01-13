@@ -1,0 +1,8 @@
+<h1>Liste des tâches par tuilisateurs</h1>
+
+<input type="text" 
+[(ngModel)]="userSelected"
+[title]="myTitle"/>
+
+<button (click)="onSelectUser()">Valider</button>
+<p>{{ currentTasks}}</p>

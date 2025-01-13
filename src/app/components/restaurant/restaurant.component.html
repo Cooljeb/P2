@@ -1,0 +1,34 @@
+<h1>Menus du restaurant</h1>
+
+<!-- <input type="text" 
+[(ngModel)]="menuChoisi"
+[title]="myTitle"
+[placeholder]="myDescription"/>
+<button (click)="onSelectMenu()">Valider</button>
+<p> {{menuDetail}}</p>
+<p> {{menuPrix}}</p> -->
+
+
+<label for="Liste_Menus">Choix de menu</label>
+
+<select id="Liste_Menus" [(ngModel)]="menuChoisi">
+    <option *ngFor="let menu of menu" [ngValue]="menu.nom">{{menu.nom}}</option>
+</select>
+<button (click)="onSelectMenu()">Valider</button>
+<!-- <p> {{menuDetail}}</p>
+<p> {{menuPrix}}</p> -->
+@switch (menuChoisi) {
+@case ('Menu A - Pouascaille'){
+<p>détails:'Sandre grillé',prix:'12€'</p>
+}
+@case ('Menu B - Viande Blanche'){
+<p>détails:'Viande blanche grasse',prix:'15€'</p>
+}
+@case ('Menu C - Fruits de Mer'){
+<p>détails:'Fruits de mer écrasés',prix:'10€'</p>
+}
+@default {
+<p>Menu Inconnu</p>
+}
+
+}

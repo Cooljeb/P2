@@ -1,0 +1,17 @@
+<div id = "root"> 
+    <div id ="moduleConnexion">
+        <h1> Connexion</h1>
+        <hr />
+        <input type="text" [(ngModel)]="userInput" [title]="userTitle"/>
+        <input type="password" [(ngModel)]="pwdTitle" [title]="pwdTitle"/>
+        <button (click)="connect()">Connexion</button>
+    </div>
+    <div id = "userConnect">
+        <h2>Utilisateur connecté : {{ userSelected }}</h2>
+        <h2>Profil Utilisateur</h2>
+        <p>Nom : {{ user.nom }}</p>
+        <p>Prénom : {{ user.prenom }}</p>
+        <button (click)="disconnect()">Déconnexion</button>
+    </div>
+</div>
+
