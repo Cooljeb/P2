@@ -19,12 +19,13 @@ export class ConnexionComponent {
   ];
 
   ispasswordValid(username: string, password: string): boolean {
-    let user = this.user.find(u => u.username === username);
+    const user = this.user.find(u => u.username === username);
+    this.statusText=="Connected";
     return true;
   }
   connect() {
-    if (this.ispasswordValid(this.userInput, this.pwdInput)) {
-      
+      this.ispasswordValid(this.userInput, this.pwdInput);
+
     }  
   }
 }
