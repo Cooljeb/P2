@@ -1,17 +1,50 @@
-<div id = "root"> 
-    @if<div id ="moduleConnexion">
-        <h1> Connexion</h1>
-        <hr />
-        <input type="text" [(ngModel)]="userInput" [title]="userTitle"/>
-        <input type="password" [(ngModel)]="pwdTitle" [title]="pwdTitle"/>
-        <button (click)="connect()">Connexion</button>
+<p>Formulaire</p>
+
+<header>
+    @if (!user.isLoggedIn) {
+      <form (ngSubmit)="onSubmit()">
+        <input
+          type="text"
+          [(ngModel)]="loginForm.pseudo"
+          autofocus
+          name="pseudo"
+          autocomplete="off"
+          placeholder="pseudo"
+        />
+        <input
+          type="password"
+          [(ngModel)]="loginForm.password"
+          name="password"
+          autocomplete="off"
+          placeholder="mot de passe"
+        />
+        <button type="submit">Connexion</button>
+      </form>
+    } @else {
+      <h3>Bienvenue {{ user.firstname }} !</h3>
+      <button (click)="logout()">Déconnexion</button>
+    }
+  
+    @if (errors) {
+      <div style="color: red">{{ errors }}</div>
+    }
+  </header>
+  
+  @if (user.isLoggedIn) {
+    <div class="card">
+      <h2>Mon Profil</h2>
+      <div><strong>Nom:</strong>{{ user.lastname }}</div>
+      <div><strong>Prénom:</strong>{{ user.firstname }}</div>
+      <div>
+        <strong>Amis</strong>
+        <ul>
+          @for (friend of user.friend; track $index; let l = $last) {
+            <li>{{ friend }}{{ l ? "" : "," }}</li>
+          }
+        </ul>
+      </div>
     </div>
-    <div id = "userConnect">
-        <h2>Utilisateur connecté : {{ userSelected }}</h2>
-        <h2>Profil Utilisateur</h2>
-        <p>Nom : {{ user.nom }}</p>
-        <p>Prénom : {{ user.prenom }}</p>
-        <button (click)="disconnect()">Déconnexion</button>
-    </div>
-</div>
+  }
+  
+
 

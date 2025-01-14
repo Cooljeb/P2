@@ -1,6 +1,7 @@
 
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
+import { ConnexionComponent } from './components/connexion/connexion.component';
 
 
 
@@ -8,13 +9,9 @@ import { RestaurantComponent } from "./components/restaurant/restaurant.componen
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RestaurantComponent],
+  imports: [RestaurantComponent,ConnexionComponent],
   //imports: [TdlComponent]
 })
 export class AppComponent {
-  //friends =['coco','lou','sarah' ];
-  menus =['Menu A - Pouascaille',
-     'Menu B - Viande Blanche',
-     'Menu C - Fruits de Mer',
-  ]
+  title = signal('Mon titre');
 }
