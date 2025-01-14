@@ -1,0 +1,24 @@
+<p>biblio </p>
+<ul>
+    @for (livre of mesLivres(); track $index; let l = $last) {
+        <h2>{{ livre.titre }}</h2>
+        <p><strong>Auteur :</strong> {{ livre.auteur }}</p>
+        <p><strong>Éditeur :</strong> {{ livre.editeur }}</p>
+        <p><strong>Année :</strong> {{ livre.annee }}</p>
+        <p><strong>Genre :</strong> {{ livre.genre }}</p>
+    }
+  </ul>
+  <button (click)="toggleFormulaire()">
+    {{ afficherFormulaire ? 'Masquer le formulaire' : 'Ajouter un livre' }}
+  </button>
+  @if(afficherFormulaire){
+    <form (ngSubmit)="ajouterLivre()">
+      <input type="text" name ="titre" [(ngModel)]="nouveauLivre().titre" placeholder="Titre" required>
+      <input type="text" name="auteur" [(ngModel)]="nouveauLivre().auteur" placeholder="Auteur" required>
+      <input type="text" name="editeur" [(ngModel)]="nouveauLivre().editeur" placeholder="Editeur" required>
+      <input type="number" name="annee" [(ngModel)]="nouveauLivre().annee" placeholder="Année" required>
+      <input type="text" name="genre" [(ngModel)]="nouveauLivre().genre" placeholder="Genre" required>
+      <button type="submit">Enregistrer</button>
+    </form> 
+  }
+
